@@ -4,13 +4,15 @@ class Conflab < Formula
   version "0.1.0"
   license :cannot_represent
 
+  RELEASE_VERSION = "0.1.0"
+
   on_macos do
     on_arm do
-      url "https://github.com/geodica/conflab-dist/releases/download/v#{version}/conflab-aarch64-apple-darwin"
+      url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/conflab-aarch64-apple-darwin"
       sha256 "e2b996eee33db5cd33508ea0f2b94b14d42ddfc4558af9bb0c00a08574097588"
 
       resource "conflabd" do
-        url "https://github.com/geodica/conflab-dist/releases/download/v#{version}/conflabd-aarch64-apple-darwin"
+        url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/conflabd-aarch64-apple-darwin"
         sha256 "853ac7f44007b7e24857244818317265e49534dd65ff7ea71b5f72b0ef49d0d1"
       end
     end
