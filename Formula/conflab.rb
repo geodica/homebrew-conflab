@@ -29,7 +29,9 @@ class Conflab < Formula
       bin.install Dir["conflabd-*"].first => "conflabd"
     end
     resource("conflab-app").stage do
-      prefix.install "Conflab.app"
+      # Homebrew strips the single top-level dir from tarballs,
+      # so Contents/ is directly in the staging dir
+      (prefix/"Conflab.app").install Dir["*"]
     end
   end
 
