@@ -15,6 +15,11 @@ class Conflab < Formula
         url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/conflabd-aarch64-apple-darwin"
         sha256 "5bc5a2e92b448fe1d63cc7c6fe9028479f6f14be7f884a955d3340c4ef4c5589"
       end
+
+      resource "conflab-app" do
+        url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/Conflab-aarch64-apple-darwin.tar.gz"
+        sha256 "TO_BE_FILLED_BY_RELEASE_SCRIPT"
+      end
     end
   end
 
@@ -23,6 +28,22 @@ class Conflab < Formula
     resource("conflabd").stage do
       bin.install Dir["conflabd-*"].first => "conflabd"
     end
+    resource("conflab-app").stage do
+      prefix.install "Conflab.app"
+    end
+  end
+
+  def caveats
+    <<~EOS
+      Conflab.app has been installed to:
+        #{prefix}/Conflab.app
+
+      To add to your Applications folder:
+        ln -sf #{prefix}/Conflab.app /Applications/Conflab.app
+
+      Then start it with:
+        conflab app start
+    EOS
   end
 
   service do
