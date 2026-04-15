@@ -15,11 +15,6 @@ class Conflab < Formula
         url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/conflabd-aarch64-apple-darwin"
         sha256 "a83ac8a50bb12350bffd1cfaa948d77c40e30e82edbc37a74adcbcdcbd2daecb"
       end
-
-      resource "conflab-app" do
-        url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/Conflab-aarch64-apple-darwin.tar.gz"
-        sha256 "4e75e26d0504bf763867d14be459987ad4cc9d4dbf0736bd1c96a731e5c6671a"
-      end
     end
   end
 
@@ -28,23 +23,22 @@ class Conflab < Formula
     resource("conflabd").stage do
       bin.install Dir["conflabd-*"].first => "conflabd"
     end
-    resource("conflab-app").stage do
-      # Homebrew strips the single top-level dir from tarballs,
-      # so Contents/ is directly in the staging dir
-      (prefix/"Conflab.app").install Dir["*"]
-    end
   end
 
   def caveats
     <<~EOS
-      Conflab.app has been installed to:
-        #{prefix}/Conflab.app
+      This formula installs the Conflab CLI and daemon only.
 
-      To add to your Applications folder:
-        ln -sf #{prefix}/Conflab.app /Applications/Conflab.app
+      For the menubar app (Conflab.app) install the cask:
+        brew install --cask geodica/conflab/conflab
 
-      Then start it with:
-        conflab app start
+      Or download the signed installer directly:
+        https://conflab.space/download/mac
+
+      The cask and this formula coexist. The cask installs the app to
+      /Applications and the binaries to /usr/local/bin; this formula installs
+      into Homebrew's prefix. If you have both, /usr/local/bin takes precedence
+      on PATH. Run `conflab doctor` to verify.
     EOS
   end
 
