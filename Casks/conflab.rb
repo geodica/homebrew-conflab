@@ -1,6 +1,6 @@
 cask "conflab" do
-  version "0.2.1"
-  sha256 "f8c49109f5dbe66ba68e22a89e98c350558a975458f6cee9b5842c3915ef55b6"
+  version "0.3.0"
+  sha256 "b479cc8d9ad703b7c21bd90095d5d2748c62be952248eca28049e31e105c4dc4"
 
   url "https://github.com/geodica/conflab-dist/releases/download/v#{version}/Conflab-#{version}-arm64.pkg"
   name "Conflab"
