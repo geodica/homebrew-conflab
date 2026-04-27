@@ -9,11 +9,11 @@ class Conflab < Formula
   on_macos do
     on_arm do
       url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/conflab-aarch64-apple-darwin"
-      sha256 "4a930e3c2c46f1f1bf5e452d6ef284966b2a1e885c626def2f67faf7bac6c132"
+      sha256 "69da3cc761d8c215792f29bec19e4a43173ee36a5f66a84671d1a6efccf16f4a"
 
       resource "conflabd" do
         url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/conflabd-aarch64-apple-darwin"
-        sha256 "4a604d787aeee99eecd0964d6b19b0cd08d9e5e8e5fabeefdcf8c5b0edade10e"
+        sha256 "727a488c6c8fe229797b60da94628342fe7650290871f356c1dca9eb9051adf4"
       end
     end
   end
