@@ -1,19 +1,19 @@
 class Conflab < Formula
   desc "CLI and daemon for Conflab agentic collaboration"
   homepage "https://conflab.space"
-  version "0.3.5"
+  version "0.4.0"
   license :cannot_represent
 
-  RELEASE_VERSION = "0.3.5"
+  RELEASE_VERSION = "0.4.0"
 
   on_macos do
     on_arm do
       url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/conflab-aarch64-apple-darwin"
-      sha256 "324a81dc45b5d5e53c50ced69bcf818678d05f4e77a2ca01bfce3af2ba9fe19c"
+      sha256 "4b5d11c18c455db4a8a8ac77d7b94a8220b5450986542b1e073e717b445b72ab"
 
       resource "conflabd" do
         url "https://github.com/geodica/conflab-dist/releases/download/v#{RELEASE_VERSION}/conflabd-aarch64-apple-darwin"
-        sha256 "ab7407e77c70853d58a7685ce38a987afc218d4af028ade206c3c9206ecc501c"
+        sha256 "4e6ec55257b9bae152a0dd0f36702eb3365a6656fd06e00a2884a396341828eb"
       end
     end
   end
