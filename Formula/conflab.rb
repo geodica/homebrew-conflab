@@ -44,7 +44,11 @@ class Conflab < Formula
 
   service do
     run [opt_bin/"conflabd", "start"]
-    keep_alive false
+    # conflabd is a long-running daemon (MCP + WebSocket endpoints); a crashed
+    # daemon should restart automatically. Matches the pkg installer's
+    # LaunchAgent (`KeepAlive=true`) so behaviour is the same regardless of
+    # install path.
+    keep_alive true
     log_path var/"log/conflabd.log"
     error_log_path var/"log/conflabd.log"
   end
